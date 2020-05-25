@@ -1,0 +1,264 @@
+body{
+  margin: 0%;
+  background: lightblue;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h2, h3, h4, p{
+  margin: 1%;
+}
+
+/* INPUT */
+input, button{
+  background: lightgray;
+  border: medium;
+  padding: 3px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+input:hover, button:hover{
+  background: darkgray;
+}
+/* END INPUT */
+
+/* A */
+a{
+  color: slateblue;
+  text-decoration: none;
+}
+
+a:hover{
+  color: darkblue;
+  text-decoration: none;
+}
+
+.a{
+  color: slateblue;
+  text-decoration: none;
+}
+
+.a:hover{
+  color: darkblue;
+  text-decoration: none;
+}
+/* END A */
+
+/* HEADER */
+header{
+  background: rgb(92, 92, 92);
+  color: darkgray;
+}
+
+header h1{
+  color: rgb(221, 221, 221);
+  margin: 0;
+  position: relative;
+  text-align: center; 
+  padding-top: 0px;
+}
+
+header nav ul{
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+
+header nav ul li{
+  list-style-type: none;
+  color: rgb(196, 196, 196);
+
+  padding-right: 10px;
+}
+
+header nav ul li a{
+  color: rgb(118, 181, 202);
+  text-decoration: none;
+}
+
+header nav ul li a:hover{
+  color: lightseagreen;
+}
+
+.logo{
+  background-image: url("/img/logo.png");
+  background-size: 100px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  position: relative;
+
+  top: -25px;
+  text-indent: -9999px;
+  width: 100px;
+  height: 65px;
+}
+/* END HEADER */
+
+/* FOOTER */
+footer{
+  background: gray;
+  text-align: center;
+  color: lightsteelblue;
+  padding: 5px 5px;
+}
+
+footer nav{
+  display: flex;
+  justify-content: center;
+  color: lightsteelblue;
+}
+
+footer nav ul{
+  list-style-type: none;
+  display: flex;
+}
+
+footer nav ul li{
+    padding: 5px;
+}
+
+footer nav a{
+  color: rgb(118, 181, 202);
+  text-decoration: none;
+}
+
+footer nav a:hover{
+  color: lightseagreen;
+}
+/* END FOOTER */
+
+/* LOGIN */
+.login{
+  list-style-type: none;
+  margin: 10px;
+}
+
+.login li{
+  color: black;
+  margin: 5px;
+  width: 250px;
+}
+
+.login hr{
+  color: lightgray;
+}
+/* END LOGIN */
+
+/* ADDHOURS */
+.addHours{
+  list-style-type: none;
+  margin: 10px;
+}
+
+.addHours li{
+  color: black;
+  margin: 5px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+.addHours input{
+  width: 150px;
+}
+
+.addHours input[type="submit"]{
+  width: 100%;
+}
+
+/* END ADDHOURS */
+
+/* HOURS */
+.hours{
+  margin-left: 0%;
+  margin-right: 4%;
+  list-style-type: none;
+}
+
+.hour{
+  background-color: lightskyblue;
+  border-radius: 5px;
+}
+/* END HOURS */
+
+/* WRONG PARAMS*/
+.wrongParams{
+  color: red;
+  font-size: 10px;
+  margin-left: 30px;
+}
+/* END WRONG PARAMS */
+
+.pic-container{
+  width: 60%;
+  list-style-type: none;
+  margin: 10px;
+}
+.pic-container li{
+  color: black;
+  margin: 5px;
+}
+
+.quantity {
+  padding-top: 20px;
+  margin-right: 60px;
+}
+.quantity input {
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-size: 16px;
+  color: #43484D;
+  font-weight: 300;
+}
+
+.minus-btn,
+.plus-btn {
+  width: 30px;
+  height: 30px;
+  background-color: #E1E8EE;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.minus-btn img {
+  margin-bottom: 3px;
+}
+.plus-btn img {
+  margin-top: 2px;
+}
+
+button:focus,
+input:focus {
+  outline:0;
+}
+
+.old-price{
+  font-size: large;
+  color: brown;
+  text-decoration: line-through;
+}
+
+.price{
+  font-size: large;
+  color: green;
+}
+
+.description{
+  background-color: darkgray;
+}
+
+.logout{
+  width: 100px;
+  margin: 10px;
+}
+
+.checkout{
+  height: 300px;
+  width: 95%;
+  margin: 20px;
+  border-radius: 15px;
+}
+
