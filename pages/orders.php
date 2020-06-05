@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping cart</title>
+    <title>Product</title>
     
+
     <link rel="stylesheet" href="/css/styles.css" type="text/css">
     <link rel="stylesheet" href="/css/flex.css" type="text/css">
         <link rel="stylesheet" href="/css/master.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
+
     <?php session_start(); include_once $_SERVER['DOCUMENT_ROOT'] . "/common/header.html"; ?>
 
-    <?php 
+<?php 
         include_once $_SERVER['DOCUMENT_ROOT'] . "/php/class.shop.php";
         include_once $_SERVER['DOCUMENT_ROOT'] . "/php/class.products.php";
         $shop = new WebshopShop();
@@ -23,25 +27,21 @@
     ?>
     <!-- IF LOGGED IN -->
 
-        <h2>Shopping cart</h2>
-        <h3>My items</h3>
-
+        <h2>Orders</h2>
 
     <ul class="category">
         <?php
             
-            $shoppingCart = $shop->getShoppingCart($_SESSION['username']);
+            $shoppingCart = $shop->getOrders($_SESSION['username']);
             foreach($shoppingCart as $row)
             {
-                product::printShoppingCartItem($row);
+                product::printOrderItem($row);
             }
             echo '<hr>';
         ?>
     </ul>
 
-    <form action="/pages/updateShoppingCart.php" method="post">
-        <button class="checkout" type="submit" name="checkout" value="1">Checkout</button>
-    </form>
+    
 
     <?php 
         else:
@@ -55,7 +55,7 @@
         endif;
     ?>
 
-    <script src="/js/quantity.js"></script>
     <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/common/footer.html"; ?>
+    <script src="/js/quantity.js"></script>
 </body>
 </html>

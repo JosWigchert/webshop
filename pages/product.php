@@ -11,12 +11,12 @@
         <link rel="stylesheet" href="/css/master.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <script src="/js/quantity.js"></script>
+
 </head>
 <body>
+
     <?php session_start(); include_once $_SERVER['DOCUMENT_ROOT'] . "/common/header.html"; ?>
 
     <?php
@@ -49,11 +49,11 @@
 
                 echo '<div class="flex-item-40">';
                 echo '<div class="quantity">
-                        <button class="plus-btn item-30" type="button" name="button">
+                        <button class="plus-btn item-30" type="button" name="button" id="plus-btn">
                             <img class="img-fluid" src="/img/plus.png" alt="" />
                         </button>
                             <input class="quantity-input item-40" type="text" name="amount" value="1">
-                        <button class="minus-btn item-30" type="button" name="button">
+                        <button class="minus-btn item-30" type="button" name="button" id="minus-btn">
                             <img class="img-fluid" src="/img/minus.png" alt="" />
                         </button>
                     </div>';
@@ -81,5 +81,6 @@
         
 
     <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/common/footer.html"; ?>
+    <script src="/js/quantity.js"></script>
 </body>
 </html>

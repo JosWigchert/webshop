@@ -1,4 +1,5 @@
 
+<input type="date" name="" id="">
 
 <?php
 session_start();
@@ -27,7 +28,7 @@ if(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'])
         $message = '
         <html>
         <head>
-            <title>Birthday Reminders for August</title>
+            <title>Order Received</title>
         </head>
         <body>
             <p>Order info</p>

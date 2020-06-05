@@ -117,30 +117,24 @@
                         }
                         
                     }
-                    echo '
-                    </div>
-                    <div class="row">';
+                    ?>
+                    
+            </div>
+            <p></p>
+            <div class="row">
+                <form class="col-sm-12" action="/pages/category.php" method="get">
+                    <span>Search</span>
+                    <input type="text" name="search" id="search">
+                </form>
+            </div>
+            <p></p>
+            <div class="row">
+                    
+                    <?php
 
-                    $checkSubCat = 1;
-
-                    while (isset($_GET['SubCat' . $checkSubCat]) && $_GET['SubCat' . $checkSubCat])
+                    if(isset($_GET['search']))
                     {
-                        $checkSubCat = $checkSubCat + 1;
-                    }
-
-                    $checkSubCat = $checkSubCat - 1;
-
-                    if ($checkSubCat > 0) 
-                    { 
-                        $products = $shop->getProductsFromCategory($_GET['SubCat' . $checkSubCat]);
-                        foreach ($products as $row)
-                        {
-                            product::printProduct($row);
-                        }
-                    }
-                    else if (isset($_GET['Category']) && $_GET['Category'])
-                    {
-                        $products = $shop->getProductsFromCategory($_GET['Category']);
+                        $products = $shop->getProductsFromSearch($_GET['search']);
                         foreach ($products as $row)
                         {
                             product::printProduct($row);
@@ -148,10 +142,38 @@
                     }
                     else
                     {
-                        $products = $shop->getAllProducts();
-                        foreach ($products as $row)
+                        $checkSubCat = 1;
+
+                        while (isset($_GET['SubCat' . $checkSubCat]) && $_GET['SubCat' . $checkSubCat])
                         {
-                            product::printProduct($row);
+                            $checkSubCat = $checkSubCat + 1;
+                        }
+
+                        $checkSubCat = $checkSubCat - 1;
+
+                        if ($checkSubCat > 0) 
+                        { 
+                            $products = $shop->getProductsFromCategory($_GET['SubCat' . $checkSubCat]);
+                            foreach ($products as $row)
+                            {
+                                product::printProduct($row);
+                            }
+                        }
+                        else if (isset($_GET['Category']) && $_GET['Category'])
+                        {
+                            $products = $shop->getProductsFromCategory($_GET['Category']);
+                            foreach ($products as $row)
+                            {
+                                product::printProduct($row);
+                            }
+                        }
+                        else
+                        {
+                            $products = $shop->getAllProducts();
+                            foreach ($products as $row)
+                            {
+                                product::printProduct($row);
+                            }
                         }
                     }
                     

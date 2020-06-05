@@ -11,7 +11,6 @@
 <body>
     <?php session_start(); include_once $_SERVER['DOCUMENT_ROOT'] . "/common/header.html"; ?>
 
-
     <?php
         include_once $_SERVER['DOCUMENT_ROOT'] . "/php/class.shop.php";
         $shop = new WebshopShop();
@@ -30,12 +29,19 @@
         
     ?>
 
+        <?php
+    if (isset($_POST['name']) && isset($_POST['category']))
+    {
+        $shop->addCategory($_POST['name'], $_POST['category']);
+    }
+    ?>
+
     <?php
         if ($userinfo['isAdmin'])
         {
     ?>
 
-    <form action="/admin/addCategory.php" method="post" enctype="multipart/form-data"> 
+    <form action="/admin/addCategory.php" method="post"> 
         <ul class="pic-container">
             <li>
                 <span for="categoryName">Category Name</span>
@@ -58,9 +64,10 @@
                 <select name="category" id="category">
                     <?php
                         $categories = $shop->getAllCategories();
+                        echo '<option value="-1">None</option>';
                         foreach($categories as $row)
                         {
-                            echo '<option value="' . $row['ID'] . '">' . $row['name'] . ' -> ' . $row['parrentName'] . '</option>';
+                            echo '<option value="' . $row['ID'] . '">' . $row['name'] . ' -> ' . $row['parentName'] . '</option>';
                         }
                     ?>
                 </select>

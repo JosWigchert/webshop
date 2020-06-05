@@ -161,6 +161,30 @@ class product {
         </form></li>';
 
     }
+
+    public static function printOrderItem($orderID)
+    {
+        echo '<hr>';
+
+        include_once $_SERVER['DOCUMENT_ROOT'] . "/php/class.shop.php";
+        $shop = new WebshopShop();
+
+        $order = $shop->getOrderContents($orderID[0]);
+
+        echo '<li>';
+        echo '<h3>Order ' . $orderID[0] . '</h3>';
+        foreach ($order as $row)
+        {
+            echo '<h4><p>' . $row['strName'] . ' -> ' . $row['quantity'] . '</p></h4>';
+        }
+
+        echo '<form action="/pages/orderUpdate.php" method="post">';
+        echo '<button type="submit" name="orderID" value="' . $orderID[0] . '">Mark as received</button>';
+        echo '</form>';
+
+
+        echo '</li>';
+    }
 }
 
 ?>

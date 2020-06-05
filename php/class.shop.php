@@ -121,6 +121,15 @@ class WebshopShop {
         return $stmt->fetchAll();
     }
 
+    public function addCategory($name, $parentid)
+    {
+        $stmt = $this->_db->prepare("CALL addCategory(:name, :parentid);");
+        $stmt->bindParam('name', $name);
+        $stmt->bindParam('parentid', $parentid);
+        $stmt->execute() or die(print_r($stmt->errorInfo(), true));
+        return $stmt->fetchAll();
+    }
+
     public function updateCategory($id, $name, $parentid)
     {
         $stmt = $this->_db->prepare("CALL updateCategory(:id, :name, :parentid);");
@@ -169,6 +178,40 @@ class WebshopShop {
     {
         $stmt = $this->_db->prepare("CALL checkout(:username);");
         $stmt->bindParam('username', $username);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function getOrders($username)
+    {
+        $stmt = $this->_db->prepare("CALL getOrders(:username);");
+        $stmt->bindParam('username', $username);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function getOrderContents($order)
+    {
+        $stmt = $this->_db->prepare("CALL getOrderContents(:order);");
+        $stmt->bindParam('order', $order);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function updateOrderStatus($username, $order)
+    {
+        $stmt = $this->_db->prepare("CALL updateOrderStatus(:username, :order);");
+        $stmt->bindParam('username', $username);
+        $stmt->bindParam('order', $order);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function getProductsFromSearch($search)
+    {
+        $searchValue = "%".$search."%";
+        $stmt = $this->_db->prepare("CALL getProductsFromSearch(:search);");
+        $stmt->bindParam('search', $searchValue);
         $stmt->execute();
         return $stmt->fetchAll();
     }

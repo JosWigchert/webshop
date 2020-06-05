@@ -59,6 +59,8 @@
         } 
     ?>
 
+    <p><a class="a" href="/pages/orders.php">Orders</a></p>
+
     <p>
     <form action="/pages/account.php" method="post">
         <button class="logout" type="submit" name="logout" value="1">Logout</button>

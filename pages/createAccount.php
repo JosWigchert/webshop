@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create account</title>
     
-    <link rel="stylesheet" href="/css/master.css" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="/css/flex.css" type="text/css">
+        <link rel="stylesheet" href="/css/master.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <?php session_start(); include_once $_SERVER['DOCUMENT_ROOT'] . "/common/header.html"; ?>
@@ -18,7 +22,7 @@
     <form action="/pages/createAccount.php" method="post">
         <ul class="login">          
             <li>
-                <input type="email" name="email" id="email" placeholder="example@mymail.com">    
+                <div><input type="email" name="email" id="email" placeholder="example@mymail.com"><div id="email-valid"></div></div>
                 <div class="wrongParams">
                     <?php 
                     if(isset($_POST['email'])):
@@ -65,7 +69,7 @@
                 $message = '
                 <html>
                 <head>
-                    <title>Birthday Reminders for August</title>
+                    <title>Validate email</title>
                 </head>
                 <body>
                     <p>Welcome to joswigchert.nl!</p>
@@ -90,7 +94,7 @@
     
     echo "</p>";
     ?>
-
+    <script src="/js/email.js"></script>
     <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/common/footer.html"; ?>
 </body>
 </html>
