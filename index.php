@@ -120,10 +120,11 @@
                         }
                         
                     }
-                    echo '
-                    </div>
-                    <div class="row">';
-
+                    ?>
+            </div>
+            <p></p>
+            <div class="row">
+                    <?php
                     $checkSubCat = 1;
 
                     while (isset($_GET['SubCat' . $checkSubCat]) && $_GET['SubCat' . $checkSubCat])
